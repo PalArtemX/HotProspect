@@ -5,6 +5,7 @@
 //  Created by Artem Paliutin on 24/05/2022.
 //
 
+import CodeScanner
 import SwiftUI
 
 struct ProspectsView: View {
@@ -49,11 +50,14 @@ struct ProspectsView: View {
             .navigationTitle(title)
             .toolbar {
                 Button {
-                    vm.addProspect()
+                    vm.isShowingScanner = true
                 } label: {
                     Label("Scan", systemImage: "qrcode.viewfinder")
                 }
                 
+            }
+            .sheet(isPresented: $vm.isShowingScanner) {
+                CodeScannerView(codeTypes: [.qr], simulatedData: "Artem\nart@swift.com", completion: vm.handleScan)
             }
         }
     }

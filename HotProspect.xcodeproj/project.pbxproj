@@ -12,6 +12,10 @@
 		F82225FC283D1F0C009BD926 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F82225FB283D1F0C009BD926 /* Preview Assets.xcassets */; };
 		F8222606283D2479009BD926 /* ProspectsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8222605283D2479009BD926 /* ProspectsView.swift */; };
 		F8222608283D24D1009BD926 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8222607283D24D1009BD926 /* HomeView.swift */; };
+		F822260A283D2604009BD926 /* MeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8222609283D2604009BD926 /* MeView.swift */; };
+		F822260C283D2ADA009BD926 /* Prospect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F822260B283D2ADA009BD926 /* Prospect.swift */; };
+		F822260E283D2B53009BD926 /* ProspectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F822260D283D2B53009BD926 /* ProspectViewModel.swift */; };
+		F8222612283D3429009BD926 /* FilterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8222611283D3429009BD926 /* FilterType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +25,10 @@
 		F82225FB283D1F0C009BD926 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F8222605283D2479009BD926 /* ProspectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProspectsView.swift; sourceTree = "<group>"; };
 		F8222607283D24D1009BD926 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		F8222609283D2604009BD926 /* MeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeView.swift; sourceTree = "<group>"; };
+		F822260B283D2ADA009BD926 /* Prospect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prospect.swift; sourceTree = "<group>"; };
+		F822260D283D2B53009BD926 /* ProspectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProspectViewModel.swift; sourceTree = "<group>"; };
+		F8222611283D3429009BD926 /* FilterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +82,8 @@
 		F8222602283D1F21009BD926 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F822260B283D2ADA009BD926 /* Prospect.swift */,
+				F8222611283D3429009BD926 /* FilterType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -81,6 +91,7 @@
 		F8222603283D1F2C009BD926 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F822260D283D2B53009BD926 /* ProspectViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -90,6 +101,7 @@
 			children = (
 				F8222607283D24D1009BD926 /* HomeView.swift */,
 				F8222605283D2479009BD926 /* ProspectsView.swift */,
+				F8222609283D2604009BD926 /* MeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -164,6 +176,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8222612283D3429009BD926 /* FilterType.swift in Sources */,
+				F822260A283D2604009BD926 /* MeView.swift in Sources */,
+				F822260C283D2ADA009BD926 /* Prospect.swift in Sources */,
+				F822260E283D2B53009BD926 /* ProspectViewModel.swift in Sources */,
 				F8222606283D2479009BD926 /* ProspectsView.swift in Sources */,
 				F8222608283D24D1009BD926 /* HomeView.swift in Sources */,
 				F82225F5283D1F0C009BD926 /* HotProspectApp.swift in Sources */,

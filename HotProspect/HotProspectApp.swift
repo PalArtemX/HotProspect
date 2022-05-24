@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct HotProspectApp: App {
+    @StateObject var prospectViewModel = ProspectViewModel()
+    
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .environmentObject(prospectViewModel)
         }
     }
 }

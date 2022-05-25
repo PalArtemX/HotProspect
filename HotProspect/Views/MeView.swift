@@ -28,6 +28,14 @@ struct MeView: View {
                     .resizable()
                     .interpolation(.none)
                     .scaledToFit()
+                    .contextMenu {
+                        Button {
+                            
+                        } label: {
+                            Label("Save to Photos", systemImage: "square.and.arrow")
+                        }
+
+                    }
             }
             .navigationTitle("Your code")
         }

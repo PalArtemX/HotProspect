@@ -18,17 +18,35 @@ class ProspectViewModel: ObservableObject {
     
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
+    let saveKey = "SavedData"
     
-    
+    // MARK: - init
     init() {
+        if let data = UserDefaults.standard.data(forKey: saveKey) {
+            if let decoded = try? JSONDecoder().decode([Prospect].self, from: data) {
+                people = decoded
+                return
+            }
+        }
         people = []
     }
     
     // MARK: - Functions
+    func add(_ prospect: Prospect) {
+        people.append(prospect)
+        save()
+    }
+    
+    private func save() {
+        if let encoded = try? JSONEncoder().encode(people) {
+            UserDefaults.standard.set(encoded, forKey: saveKey)
+        }
+    }
     
     func toggle(_ prospect: Prospect) {
         objectWillChange.send()
         prospect.isContacted.toggle()
+        save()
     }
     
     func generateQRCode(from string: String) -> UIImage {
@@ -53,8 +71,7 @@ class ProspectViewModel: ObservableObject {
             let person = Prospect()
             person.name = details[0]
             person.emailAddress = details[1]
-            people.append(person)
-            
+            add(person)
         case .failure(let error):
             print("Scanning failed: \(error.localizedDescription)")
         }

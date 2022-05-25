@@ -24,13 +24,13 @@ struct MeView: View {
                     .textContentType(.emailAddress)
                     .font(.title2)
                 
-                Image(uiImage: vm.generateQRCode(from: "\(name)\n\(emailAddress)"))
+                Image(uiImage: vm.qrCode)
                     .resizable()
                     .interpolation(.none)
                     .scaledToFit()
                     .contextMenu {
                         Button {
-                            
+                            vm.imageSaver(name: name, emailAddress: emailAddress)
                         } label: {
                             Label("Save to Photos", systemImage: "square.and.arrow")
                         }
@@ -38,6 +38,15 @@ struct MeView: View {
                     }
             }
             .navigationTitle("Your code")
+            .onAppear {
+                vm.updateCode(name: name, emailAddress: emailAddress)
+            }
+            .onChange(of: name) { _ in
+                vm.updateCode(name: name, emailAddress: emailAddress)
+            }
+            .onChange(of: emailAddress) { _ in
+                vm.updateCode(name: name, emailAddress: emailAddress)
+            }
         }
     }
 }

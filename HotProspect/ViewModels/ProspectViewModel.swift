@@ -15,10 +15,12 @@ import UIKit
 class ProspectViewModel: ObservableObject {
     @Published var people: [Prospect]
     @Published var isShowingScanner = false
+    @Published var qrCode = UIImage()
     
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
     let saveKey = "SavedData"
+    
     
     // MARK: - init
     init() {
@@ -32,6 +34,16 @@ class ProspectViewModel: ObservableObject {
     }
     
     // MARK: - Functions
+    
+    func updateCode(name: String, emailAddress: String) {
+        qrCode = generateQRCode(from: "\(name)\n\(emailAddress)")
+    }
+    
+    func imageSaver(name: String, emailAddress: String) {
+        let imageSaver = ImageSaver()
+        imageSaver.writeToPhotoAlbum(image: qrCode)
+    }
+    
     func add(_ prospect: Prospect) {
         people.append(prospect)
         save()

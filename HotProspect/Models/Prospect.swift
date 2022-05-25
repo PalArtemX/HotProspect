@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Prospect: Identifiable, Codable {
+class Prospect: Identifiable, Codable {
     var id = UUID()
     var name = "Anonymus"
     var emailAddress = ""

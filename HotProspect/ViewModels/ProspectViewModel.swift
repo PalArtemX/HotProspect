@@ -26,6 +26,10 @@ class ProspectViewModel: ObservableObject {
     
     // MARK: - Functions
     
+    func toggle(_ prospect: Prospect) {
+        objectWillChange.send()
+        prospect.isContacted.toggle()
+    }
     
     func generateQRCode(from string: String) -> UIImage {
         filter.message = Data(string.utf8)
@@ -46,7 +50,7 @@ class ProspectViewModel: ObservableObject {
             let details = result.string.components(separatedBy: "\n")
             guard details.count == 2 else { return }
             
-            var person = Prospect()
+            let person = Prospect()
             person.name = details[0]
             person.emailAddress = details[1]
             people.append(person)
@@ -55,4 +59,5 @@ class ProspectViewModel: ObservableObject {
             print("Scanning failed: \(error.localizedDescription)")
         }
     }
+
 }
